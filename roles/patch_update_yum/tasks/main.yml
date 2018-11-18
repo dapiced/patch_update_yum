@@ -1,0 +1,37 @@
+---
+# This playbook allows you to apply patch update via yum
+# 4 types of update available: everything with or without reboot OR security only with or without reboot
+# The hosts must be a part of the patch_update_yum group
+# You must configure the variables "securite_only" (yes or no) and "reboot" (yes or no) in the group_vars "patch_update_yum"
+# You need ansible 2.7 to use the reboot module
+
+  - name: Upgrade all yum package with reboot
+    yum:
+        name: '*'
+        state: latest
+    notify:
+           - Server reboot...
+    when: security_only == "no" and reboot == "yes"
+
+  - name: Upgrade all yum package with no reboot
+    yum:
+        name:  '*'
+        state: latest
+    when: security_only == "no" and reboot == "no"
+
+  - name: Upgrade yum security package only with reboot
+    yum: 
+        name:     '*'
+        state:    latest
+        security: yes
+    notify:
+           - Server reboot...
+    when: security_only == "yes" and reboot == "yes"
+
+  - name: Upgrade yum security package only with no reboot
+    yum:
+        name:     '*'
+        state:    latest
+        security: yes
+    when: security_only == "yes" and reboot == "no"
+

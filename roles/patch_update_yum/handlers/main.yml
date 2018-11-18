@@ -1,0 +1,5 @@
+---
+    - name: Server reboot... 
+      reboot:
+        pre_reboot_delay: 1
+
