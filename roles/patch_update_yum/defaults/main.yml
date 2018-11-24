@@ -1,0 +1,4 @@
+---
+
+security_only: "no"  # yes or no
+reboot:        "yes" # yes or no
