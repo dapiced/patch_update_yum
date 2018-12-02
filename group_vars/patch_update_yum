@@ -1,4 +1,6 @@
 ---
 
-#security_only: "no"  # yes or no
-#reboot:        "yes" # yes or no
+# security_only_required: "no" # yes/no
+# reboot_required: "true"      # true/false
+# package_name: '*'            # yum package name
+# package_state: "latest"      # absent, installed, latest, present, removed
