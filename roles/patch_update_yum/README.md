@@ -1,14 +1,25 @@
-# Ansible Role: patch_update_yum
+This playbook allows to apply an update of RHEL patch via yum
+==============================================================
 
-An Ansible role that upgrade all packages or security patch only via yum and reboot server (optional) 
+- By default, it updates all the patches and restart the server
 
-# Description 
+- 6 types of update are available
 
-This playbook allows you to apply patch update via yum
-4 types of update available: everything with or without reboot OR security only with or without reboot
-The hosts must be a part of the patch_update_yum group if desired
-You must configure the variables "securite_only" (yes or no) and "reboot" (yes or no) in the group_vars "patch_update_yum" or default wil be all patch with reboot
-You need ansible 2.7 to use the reboot module
+      - All patches with restart
+      - All patches without restart
+      - Security patch only with restart
+      - Security patch only without restart
+      - Custom patch only with restart
+      - Custom patch only without restart
+
+- The following variables must be overwritten only if the default does not suit your need (eg by a group_vars patch_update)
+
+    security_only_required: "no" # yes/no
+    reboot_required: "true"      # true/false
+    package_name: '*'            # yum package name
+    package_state: "latest"      # absent, installed, latest, present, removed
+  
+- You need ansible 2.7 to use the reboot module
 
 
 

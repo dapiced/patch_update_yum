@@ -1,5 +1,6 @@
 ---
-    - name: Server reboot... 
+    - name: Server reboot if needed... 
       reboot:
         pre_reboot_delay: 1
+      when: reboot_required   
 
