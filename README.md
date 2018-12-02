@@ -21,7 +21,7 @@ This playbook allows to apply an update of RHEL patch via yum
 
 - The following variables must be overwritten only if the default does not suit your need (eg by a group_vars patch_update)
 
-     security_only_required: "no" # yes/no
+      security_only_required: "no" # yes/no
    
       reboot_required: "true"      # true/false
    
