@@ -1,7 +1,7 @@
 ---
  
   - name: Package update  
-    yum: 
+    ansible.builtin.yum: 
         name:     "{{ package_name }}"
         state:    "{{ package_state }}"
         security: "{{ security_only_required }}"

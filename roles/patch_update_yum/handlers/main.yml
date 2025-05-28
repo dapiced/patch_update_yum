@@ -1,6 +1,6 @@
 ---
     - name: Server reboot if needed... 
-      reboot:
-        pre_reboot_delay: 1
+      ansible.builtin.reboot:
+        pre_reboot_delay: 60
       when: reboot_required   
 
